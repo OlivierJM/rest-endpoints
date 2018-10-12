@@ -23,7 +23,7 @@ const links = [
   
   ]
 
-
+// Note this keeps adding everytime the server restarts
 Meteor.startup(() => {
     links.forEach(link => {
         Links.insert(link)
