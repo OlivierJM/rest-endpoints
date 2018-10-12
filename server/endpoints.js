@@ -1,12 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Restivus } from 'meteor/mrest:restivus';
+import { Links } from './links';
 import * as data from '../data.json';
+
 
 const Api = new Restivus({
   useDefaultAuth: false,
   prettyJson: true,
 });
-
+// endpoint at /api/data
 Api.addRoute(
     'data',
     { authRequired: false },
@@ -25,3 +27,18 @@ Api.addRoute(
       },
     },
   );
+
+  // GET endpoint for the references
+Api.addCollection(Links, {
+    routeOptions: {
+      authRequired: false,
+    },
+    endpoints: {
+      get: {
+        authRequired: false,
+      },
+    },
+  });
+
+  // or as simple as this 
+//   Api.addCollection(Links)
