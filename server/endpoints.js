@@ -6,6 +6,7 @@ const Api = new Restivus({
   useDefaultAuth: false,
   prettyJson: true,
 });
+
 Api.addRoute(
     'data',
     { authRequired: false },
